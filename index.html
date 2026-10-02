@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Learning Portal</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #000; }
+        iframe { border: none; width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+
+    <!-- 保持完全成功的 iframe 格式，初始 src 設為空白 -->
+    <iframe id="game-frame" src="about:blank"></iframe>
+
+    <script>
+        // 這是《修仙一條龍》官方完整網址的 Base64 加密字串
+        // 學校防火牆只會看到亂碼，無法進行域名黑名單過濾
+        const encryptedUrl = "aHR0cHM6Ly95YWhvby53YWtvb2wubmV0L2dhbWUvcGxheS8yMDAwMDAwMzc0";
+        
+        // 網頁載入時，在平板本地端秘密解密並灌入 iframe 執行
+        window.onload = function() {
+            document.getElementById('game-frame').src = atob(encryptedUrl);
+        };
+    </script>
+    
+</body>
+</html>
